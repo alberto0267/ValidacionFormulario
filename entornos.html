@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input[type="text"] {
+      width: 90%;
+    }
+    legend {
+      font-weight: bold;
+      font-size: 25px;
+    }
+    input[type="submit"] {
+      margin-top: 5px;
+      color: azure;
+      background-color: aqua;
+      border-radius: 10%;
+    }
+    #id_situacionHombre {
+      display: none;
+    }
+    #id_situacionMujer {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1>Ejercicio VAlidadicion Formulario</h1>
+    <form action="" onsubmit="Validar()">
+      <legend>Formulario</legend>
+      <div>
+        <div>
+          <label for="id_nombre">Nombre</label>
+        </div>
+        <input
+          type="text"
+          placeholder="Ingrese su nombre"
+          name="nombre"
+          id="id_nombre"
+        />
+      </div>
+      <div>
+        <div>
+          <label for="id_apelldos">Apellidos</label>
+        </div>
+        <input
+          type="text"
+          placeholder="Apellidos"
+          name="Apellidos"
+          id="id_apelldos"
+        />
+      </div>
+      <div>
+        <div>
+          <label for="id_edad" name>Edad</label>
+        </div>
+        <input
+          type="text"
+          placeholder="INngrese su edad"
+          name="edad"
+          id="id_edad"
+        />
+      </div>
+      <div>
+        <label for="">Sexo</label>
+        <select name="sexo" id="id_sexo" onchange="sexo()">
+          <option value=""></option>
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+        </select>
+      </div>
+      <div>
+        <div>
+          <label for="">SItuacion Familiar</label>
+        </div>
+        <div id="id_situacionHombre">
+          <select name="situaccion" id="">
+            <option value="Soltero">Soltero</option>
+            <option value="Casado">Casado</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Viudo">Viudo</option>
+          </select>
+        </div>
+        <div id="id_situacionMujer">
+          <select name="situaccion" id="">
+            <option value="Soltera">Soltera</option>
+            <option value="Casada">Casada</option>
+            <option value="Divorciada">Divorciada</option>
+            <option value="Viuda">Viuda</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label for="id_email">Email</label>
+        </div>
+        <input
+          type="text"
+          placeholder="Ingrese su correo electronico"
+          name="correo"
+          id="id_email"
+        />
+      </div>
+      <div>
+        <div>
+          <label for="id_telefono">Telefono</label>
+        </div>
+        <input
+          type="text"
+          placeholder="Ingrese su numero de telefono"
+          name="telefono"
+          id="id_telefono"
+        />
+      </div>
+      <div>
+        <input type="submit" value="Enviar" />
+      </div>
+    </form>
+  </body>
+  <script>
+    function sexo() {
+      const sexo = document.getElementById("id_sexo").value;
+      document.getElementById("id_situacionHombre").style.display = "none";
+      document.getElementById("id_situacionMujer").style.display = "none";
+      if (sexo == "Hombre") {
+        document.getElementById("id_situacionHombre").style.display = "block";
+      }
+      if (sexo == "Mujer") {
+        document.getElementById("id_situacionMujer").style.display = "block";
+      }
+    }
+  </script>
+</html>
