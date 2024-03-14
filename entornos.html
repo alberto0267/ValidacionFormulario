@@ -31,8 +31,8 @@
     }
   </style>
   <body>
-    <h1>Ejercicio VAlidadicion Formulario</h1>
-    <form action="" onsubmit="Validar()">
+    <h1>Ejercicio Validadicion Formulario</h1>
+    <form action="" onsubmit="return Validar()">
       <legend>Formulario</legend>
       <div>
         <div>
@@ -58,18 +58,18 @@
       </div>
       <div>
         <div>
-          <label for="id_edad" name>Edad</label>
+          <label for="id_edadMayor" name>Edad</label>
         </div>
         <input
           type="text"
           placeholder="INngrese su edad"
           name="edad"
-          id="id_edad"
+          id="id_edadMayor"
         />
       </div>
       <div>
         <label for="">Sexo</label>
-        <select name="sexo" id="id_sexo" onchange="sexo()">
+        <select name="sexo" id="id_sexo" onchange="SeleccionSexo()">
           <option value=""></option>
           <option value="Hombre">Hombre</option>
           <option value="Mujer">Mujer</option>
@@ -120,21 +120,33 @@
         />
       </div>
       <div>
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Enviar" id="id_enviar" />
       </div>
     </form>
+    <script>
+      function SeleccionSexo() {
+        const sexo = document.getElementById("id_sexo").value;
+        document.getElementById("id_situacionHombre").style.display = "none";
+        document.getElementById("id_situacionMujer").style.display = "none";
+        if (sexo === "Hombre") {
+          document.getElementById("id_situacionHombre").style.display = "block";
+        }
+        if (sexo === "Mujer") {
+          document.getElementById("id_situacionMujer").style.display = "block";
+        }
+      }
+
+      function validar() {
+        const EdadInput = document.getElementById("id_edadMayor").value;
+        const edadMAyor = parseInt(EdadInput);
+        if (edadMAyor <= 17) {
+          alert("A donde vas menor de edad");
+          return true;
+        } else {
+          alert("a ver a ver");
+          return false;
+        }
+      }
+    </script>
   </body>
-  <script>
-    function sexo() {
-      const sexo = document.getElementById("id_sexo").value;
-      document.getElementById("id_situacionHombre").style.display = "none";
-      document.getElementById("id_situacionMujer").style.display = "none";
-      if (sexo == "Hombre") {
-        document.getElementById("id_situacionHombre").style.display = "block";
-      }
-      if (sexo == "Mujer") {
-        document.getElementById("id_situacionMujer").style.display = "block";
-      }
-    }
-  </script>
 </html>
